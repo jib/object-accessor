@@ -31,6 +31,7 @@ $Object::Accessor::DEBUG = $Object::Accessor::DEBUG = 1 if @ARGV;
 {   ok( $Object,                "Object of '$LClass' created" );
     isa_ok( $Object,            $LClass );
     isa_ok( $Object,            $Class );
+    ok( $Object->mk_clone,      "   Object cloned" );
 }
 
 ### create an accessor;
@@ -42,3 +43,40 @@ $Object::Accessor::DEBUG = $Object::Accessor::DEBUG = 1 if @ARGV;
     ok( $Object->$Acc,          "Accessor '$Acc' set" );
     is( $Object->$Acc, $$,      "   Contains proper value" );
 }
+
+### test allow handlers
+{   my $acc   = 'bar';
+    my $clone = $Object->mk_clone;
+
+    ok( $clone,                 "Cloned the lvalue object" );
+
+    ### lets see if this causes a warning
+    {   my $warnings;
+        local $SIG{__WARN__} = sub { $warnings .= "@_" };
+
+        ok( $clone->mk_accessors({ $acc => sub { 0 } }),
+                                "   Created accessor '$acc'" );
+        like( $warnings, qr/not supported/,
+                                "       Got warning about allow handlers" );
+    }
+
+    ok( eval{ $clone->$acc = $$ },      
+                                "   Allow handler ignored" );       
+    ok( ! $@,                   "   No error occurred" );
+    is( $clone->$acc, $$,       "   Setting '$acc' worked" );
+}
+
+### test registering callbacks
+{   my $clone = $Object->mk_clone;
+    ok( $clone,                 "Cloned the lvalue object" );
+    
+    {   my $warnings;
+        local $SIG{__WARN__} = sub { $warnings .= "@_" };
+        ok( ! $clone->register_callback( sub { } ),
+                                "Callback not registered" );
+
+        like( $warnings, qr/not supported/,
+                                "   Got warning about callbacks" );
+    }                                
+}
+
