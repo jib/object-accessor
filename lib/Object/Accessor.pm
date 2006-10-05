@@ -6,6 +6,10 @@ use vars            qw[$FATAL $DEBUG $AUTOLOAD $VERSION];
 use Params::Check   qw[allow];
 use Data::Dumper;
 
+### some objects might have overload enabled, we'll need to
+### disable string overloading for callbacks
+require overload;
+
 $VERSION    = '0.30';
 $FATAL      = 0;
 $DEBUG      = 0;
@@ -265,7 +269,8 @@ sub mk_clone {
     $clone->mk_accessors( @list  ) if @list;
 
     ### copy callbacks
-    $clone->{"$clone"} = $self->{"$self"} if $self->{"$self"};
+    #$clone->{"$clone"} = $self->{"$self"} if $self->{"$self"};
+    $clone->___callback( $self->___callback );
 
     return $clone;
 }
@@ -350,7 +355,7 @@ sub register_callback {
     
     ### use the memory address as key, it's not used EVER as an
     ### accessor --kane
-    $self->{"$self"} = $sub;
+    $self->___callback( $sub );
 
     return 1;
 }
@@ -473,7 +478,7 @@ sub ___autoload {
     }
     
     ### callbacks?
-    if( my $sub = $self->{"$self"} ) {
+    if( my $sub = $self->___callback ) {
         $val = eval { $sub->( $self, $method, ($assign ? [$val] : []) ) };
         
         ### register the error
@@ -550,6 +555,22 @@ sub ___error {
     my $lvl  = shift || 0;
     local $Carp::CarpLevel += ($lvl + 1);
     $FATAL ? croak($msg) : carp($msg);
+}
+
+### objects might be overloaded.. if so, we can't trust what "$self"
+### will return, which might get *really* painful.. so check for that
+### and get their unoverloaded stringval if needed.
+sub ___callback {
+    my $self = shift;
+    my $sub  = shift;
+    
+    my $mem  = overload::Overloaded( $self )
+                ? overload::StrVal( $self )
+                : "$self";
+
+    $self->{$mem} = $sub if $sub;
+    
+    return $self->{$mem};
 }
 
 =head1 LVALUE ACCESSORS

@@ -38,7 +38,7 @@ LIBC = /usr/lib/libc.dylib
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = darwin
-OSVERS = 8.5.0
+OSVERS = 8.7.1
 RANLIB = ranlib
 SITELIBEXP = /opt/lib/perl5/site_perl/5.8.8
 SITEARCHEXP = /opt/lib/perl5/site_perl/5.8.8/darwin-2level
@@ -116,8 +116,8 @@ MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
 PERLMAINCC = $(CC)
 PERL_INC = /opt/lib/perl5/5.8.8/darwin-2level/CORE
-PERL = /usr/local/bin/perlc
-FULLPERL = /usr/local/bin/perlc
+PERL = /opt/bin/perl
+FULLPERL = /opt/bin/perl
 ABSPERL = $(PERL)
 PERLRUN = $(PERL)
 FULLPERLRUN = $(FULLPERL)
@@ -724,7 +724,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 
 # --- MakeMaker makeaperl section ---
 MAP_TARGET    = perl
-FULLPERL      = /usr/local/bin/perlc
+FULLPERL      = /opt/bin/perl
 
 $(MAP_TARGET) :: static $(MAKE_APERL_FILE)
 	$(MAKE) $(USEMAKEFILE) $(MAKE_APERL_FILE) $@
