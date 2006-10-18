@@ -1,3 +1,9 @@
+Changes for 0.32    Thu Oct  5 14:59:29 CEST 2006
+=================================================
+*   Stringification of objects was sometimes causing
+    infinite recursion when overloaded objects called
+    an autoloaded method upon stringification.
+
 Changes for 0.30    Tue Sep 19 15:31:32 CEST 2006
 =================================================
 *   Add callback possibilities to Object::Accessor.
