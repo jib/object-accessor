@@ -1,5 +1,6 @@
-Changes for 0.34
+Changes for 0.34    Sun May 18 18:14:05 CEST 2008
 =================================================
+*   Add support for aliasing method names
 
 Changes for 0.32    Thu Oct  5 14:59:29 CEST 2006
 =================================================
