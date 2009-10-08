@@ -1,3 +1,8 @@
+Changes for 0.36    Thu Oct  8 09:42:36 BST  2009
+=================================================
+*   Apply patch to fix ABSTRACT in core, RT #49563
+    from Jerry Hedden.
+
 Changes for 0.34    Sun May 18 18:14:05 CEST 2008
 =================================================
 *   Add support for aliasing method names
