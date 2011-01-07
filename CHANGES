@@ -1,3 +1,7 @@
+Changes for 0.38    Fri Jan  7 21:47:51 GMT  2011
+=================================================
+* Apply blead patch from Peter Acklam
+
 Changes for 0.36    Thu Oct  8 09:42:36 BST  2009
 =================================================
 *   Apply patch to fix ABSTRACT in core, RT #49563
