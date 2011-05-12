@@ -1,3 +1,8 @@
+Changes for 0.40    Thu May 12 20:41:36 BST  2011
+=================================================
+* Apply patch from Ikegami RT #68154, which
+  avoids use of deprecated exists on array elements.
+
 Changes for 0.38    Fri Jan  7 21:47:51 GMT  2011
 =================================================
 * Apply blead patch from Peter Acklam
