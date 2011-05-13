@@ -37,7 +37,7 @@ my $Sub         = sub {
         scalar @$val 
             ? is( $val->[0], $SetVal,
                                 "       Attempted to set $SetVal" )
-            : ok( ! exists $val->[0],
+            : ok( ! scalar @$val,
                                 "       This was a GET request" );
 
         return $RetVal;
