@@ -12,4 +12,4 @@ WriteMakefile (
     INSTALLDIRS     => ( $] >= 5.009005 ? 'perl' : 'site' ),
     AUTHOR          => 'Jos Boumans <kane[at]cpan.org>',
 	ABSTRACT        => 'Per object accessors'
-);             
+);

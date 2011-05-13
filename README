@@ -1,7 +1,7 @@
-This is the README file for Object::Accessor, a module that allows per 
+This is the README file for Object::Accessor, a module that allows per
 object accessors.
 
-Please refer to 'perldoc Object::Accessor' after installation for 
+Please refer to 'perldoc Object::Accessor' after installation for
 details.
 
 #####################################################################
@@ -10,15 +10,15 @@ details.
 
 Object::Accessor
 
-    Object::Accessor provides an interface to create per object 
+    Object::Accessor provides an interface to create per object
     accessors (as opposed to per Class accessors, as, for example,
     Class::Accessor> provides.
-    
+
     You can choose to either subclass this module, and thus using its
     accessors on your own module, or to store an Object::Accessor
-    object inside your own object, and access the accessors from 
+    object inside your own object, and access the accessors from
     there.
-    
+
 #####################################################################
 
 * Installation
