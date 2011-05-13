@@ -1,3 +1,7 @@
+Changes for 0.42    Fri May 13 12:21:50 BST  2011
+=================================================
+* Missed a test using exists, Ikegami RT #68154
+
 Changes for 0.40    Thu May 12 20:41:36 BST  2011
 =================================================
 * Apply patch from Ikegami RT #68154, which
