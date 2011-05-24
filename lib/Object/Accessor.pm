@@ -10,13 +10,18 @@ use Data::Dumper;
 ### disable string overloading for callbacks
 require overload;
 
-$VERSION    = '0.42';
 $FATAL      = 0;
 $DEBUG      = 0;
 
 use constant VALUE => 0;    # array index in the hash value
 use constant ALLOW => 1;    # array index in the hash value
 use constant ALIAS => 2;    # array index in the hash value
+
+=begin Pod::Coverage
+
+  ALLOW
+
+=end Pod::Coverage
 
 =head1 NAME
 
