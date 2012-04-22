@@ -432,18 +432,18 @@ sub can {
     ### it's one of our regular methods
     my $code = $self->UNIVERSAL::can($method);
     if( $code ) {
-        __PACKAGE__->___debug( "Can '$method' -- provided by package" );
+        carp( "Can '$method' -- provided by package" ) if $DEBUG;
         return $code;
     }
 
     ### it's an accessor we provide;
     if( UNIVERSAL::isa( $self, 'HASH' ) and exists $self->{$method} ) {
-        __PACKAGE__->___debug( "Can '$method' -- provided by object" );
+        carp( "Can '$method' -- provided by object" ) if $DEBUG;
         return sub { $self->$method(@_); }
     }
 
     ### we don't support it
-    __PACKAGE__->___debug( "Cannot '$method'" );
+    carp( "Cannot '$method'" ) if $DEBUG;
     return;
 }
 
