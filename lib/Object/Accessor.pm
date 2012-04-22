@@ -611,7 +611,6 @@ sub ___debug {
 
     my $self = shift;
     my $msg  = shift;
-    my $lvl  = shift || 0;
 
     local $Carp::CarpLevel += 1;
 
