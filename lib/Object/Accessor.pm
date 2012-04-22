@@ -4,7 +4,6 @@ use strict;
 use Carp            qw[carp croak];
 use vars            qw[$FATAL $DEBUG $AUTOLOAD $VERSION];
 use Params::Check   qw[allow];
-use Data::Dumper;
 
 ### some objects might have overload enabled, we'll need to
 ### disable string overloading for callbacks
@@ -742,7 +741,6 @@ See C<perldoc perlsub> for details.
 ### standard tie class for bound attributes
 {   package Object::Accessor::TIE;
     use Tie::Scalar;
-    use Data::Dumper;
     use base 'Tie::StdScalar';
 
     my %local = ();
