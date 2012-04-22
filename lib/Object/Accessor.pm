@@ -430,9 +430,10 @@ sub can {
     my($self, $method) = @_;
 
     ### it's one of our regular methods
-    if( $self->UNIVERSAL::can($method) ) {
+    my $code = $self->UNIVERSAL::can($method);
+    if( $code ) {
         __PACKAGE__->___debug( "Can '$method' -- provided by package" );
-        return $self->UNIVERSAL::can($method);
+        return $code;
     }
 
     ### it's an accessor we provide;
