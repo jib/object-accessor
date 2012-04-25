@@ -1,3 +1,7 @@
+CHanges for 0.44    Wed Apr 25 14:08:30 BST  2012
+=================================================
+* can() is now fasteh thanks to Vincent Pit
+
 Changes for 0.42    Fri May 13 12:21:50 BST  2011
 =================================================
 * Missed a test using exists, Ikegami RT #68154
