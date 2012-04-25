@@ -13,7 +13,7 @@ WriteMakefile1(
     dist            => { COMPRESS => 'gzip -9f', SUFFIX => 'gz' },
     PREREQ_PM       => {    'Carp'          => 0,
                             'Test::More'    => 0,
-                            'Params::Check' => '0.23',
+                            'Params::Check' => '0.34',
                     },
     INSTALLDIRS     => ( $] >= 5.009005 ? 'perl' : 'site' ),
     AUTHOR          => 'Jos Boumans <kane[at]cpan.org>',
