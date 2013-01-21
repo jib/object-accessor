@@ -1,4 +1,5 @@
 package Object::Accessor;
+use if $] > 5.017, 'deprecate';
 
 use strict;
 use Carp            qw[carp croak];
