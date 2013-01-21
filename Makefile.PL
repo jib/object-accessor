@@ -14,8 +14,9 @@ WriteMakefile1(
     PREREQ_PM       => {    'Carp'          => 0,
                             'Test::More'    => 0,
                             'Params::Check' => '0.34',
+                            'if'            => 0,
                     },
-    INSTALLDIRS     => ( $] >= 5.009005 ? 'perl' : 'site' ),
+    INSTALLDIRS     => ( $] >= 5.009005 && $] < 5.012 ? 'perl' : 'site' ),
     AUTHOR          => 'Jos Boumans <kane[at]cpan.org>',
     ABSTRACT        => 'Per object accessors'
 );
