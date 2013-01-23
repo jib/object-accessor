@@ -1,4 +1,11 @@
-CHanges for 0.44    Wed Apr 25 14:08:30 BST  2012
+Changes for 0.46    Wed Jan 23 14:09:11 GMT  2013
+=================================================
+* Add deprecate usage to warn if module is loaded
+  from corelib. Object::Accessor is leading core
+  with v5.20.0, but will remain available from
+  CPAN.
+
+Changes for 0.44    Wed Apr 25 14:08:30 BST  2012
 =================================================
 * can() is now fasteh thanks to Vincent Pit
 
