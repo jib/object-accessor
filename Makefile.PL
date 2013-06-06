@@ -4,8 +4,13 @@ use strict;
 WriteMakefile1(
     LICENSE => 'perl',
     META_MERGE => {
+        "meta-spec" => { version => 2 },
         resources => {
-            repository => 'https://github.com/jib/object-accessor',
+            repository => {
+              type => 'git',
+              web => 'https://github.com/jib/object-accessor',
+              url => 'git://github.com/jib/object-accessor.git',
+            },
         },
     },
     NAME            => 'Object::Accessor',

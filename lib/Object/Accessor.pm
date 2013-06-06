@@ -10,7 +10,7 @@ use Params::Check   qw[allow];
 ### disable string overloading for callbacks
 require overload;
 
-$VERSION    = '0.46';
+$VERSION    = '0.48';
 $FATAL      = 0;
 $DEBUG      = 0;
 

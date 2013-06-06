@@ -1,3 +1,7 @@
+Changes for 0.48    Thu Jun  6 10:16:16 BST 2013
+=================================================
+* Fix typos (David Steinbrunner)
+
 Changes for 0.46    Wed Jan 23 14:09:11 GMT  2013
 =================================================
 * Add deprecate usage to warn if module is loaded
